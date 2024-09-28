@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap common css & js link -->
+    <link rel="stylesheet" href="../common/css/bootstrap.min.css">
+    <script src="../common/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sweetalert common js link -->
+    <script src="../common/js/sweetalert2.js"></script>
+
+    <!-- animate.css common css link -->
+    <link rel="stylesheet" href="../common/css/animate.min.css">
+
+    <!-- fontawesom css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <title>Employee Panel</title>
+</head>
+
+<body>
+    <div class="container-fluid p-0 overflow-hidden">
+
+        <!-- side nav of employee panel -->
+        <div class="side-nav side-nav-open shadow-sm overflow-scroll">
+            <button
+                class="btn collapse-btn shadow-sm w-100 d-flex gap-2 justify-content-between text-white align-items-center fs-6 bg-gradient fw-bold">
+                <i class="fas fa-shopping-cart"></i>
+                STOCKS UPDATE
+                <i class="fas fa-angle-down"></i>
+            </button>
+
+            <ul class="collapse p-2">
+                <li class="active collapse-item list-group-item shadow-sm text-white border-start bg-transparent"
+                    access-link="dynamic/category-design.html">
+                    Create Category
+                </li>
+                <li class="collapse-item list-group-item shadow-sm text-white border-start bg-transparent"
+                    access-link="dynamic/brand-design.html">
+                    Create Brands
+                </li>
+                <li class="collapse-item list-group-item shadow-sm text-white border-start bg-transparent"
+                    access-link="dynamic/category-design.html">
+                    Create Products
+                </li>
+            </ul>
+        </div>
+
+        <!-- main content page -->
+        <div class="page page-open">
+
+        </div>
+
+    </div>
+
+    <!-- js file link -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
