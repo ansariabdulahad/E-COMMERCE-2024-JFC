@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
-  /* background-color: slateblue; */
-}
+  background-color: slateblue;
+} */
 
 .side-nav {
   height: 100vh;

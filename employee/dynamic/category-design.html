@@ -8,29 +8,38 @@
 <!-- Category section -->
 <div class="row p-4 gap-4 animate__animated animate__zoomIn">
 
-    <div class="col-md-4 bg-white shadow-sm p-4">
+    <div class="col-md-4 bg-white shadow-sm p-4" style="height: fit-content;">
         <h5>
             CREATE CATEGORY
             <i class="fa fa-rotate-right fa-solid fa-sharp float-end"></i>
         </h5>
         <hr>
-        <form>
-            <input type="text" class="form-control mb-3 shadow-sm" placeholder="Category">
-            <button class="btn btn-primary">
+
+        <form class="category-form">
+
+            <input type="text" class="form-control mb-3 shadow-sm" placeholder="Category" required>
+
+            <div class="input-box">
+                <!-- render here category input with delete btn when add fields btn clicked -->
+            </div>
+
+            <button class="btn btn-primary add-field-btn" type="button">
                 <i class="fa fa-add"></i> Add Fields
             </button>
-            <button class="btn btn-danger">Create</button>
+            <button class="btn btn-danger" type="submit">Create</button>
+
         </form>
     </div>
 
     <div class="col-md-1"></div>
 
-    <div class="col-md-6 bg-white shadow-sm p-4">
+    <div class="col-md-6 bg-white shadow-sm p-4" style="height: fit-content;">
         <h5>
             CATEGORY LIST
             <i class="fa fa-rotate-right fa-solid fa-sharp float-end"></i>
         </h5>
         <hr>
+
         <div class="table-responsive">
             <table class="table fw-bold table-striped">
                 <thead>
@@ -40,7 +49,8 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody class="category-list">
                     <tr>
                         <td>1</td>
                         <td>Mobiles</td>
@@ -56,5 +66,6 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 </div>

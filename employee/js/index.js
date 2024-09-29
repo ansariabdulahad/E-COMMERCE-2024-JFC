@@ -77,5 +77,10 @@ const dynamicAjaxFunc = (link) => {
         let response = ajax.response;
         page.innerHTML = response;
         toggleSideNavbar();
+
+        // call category js functions when page loaded
+        if (link === "dynamic/category-design.html") {
+            createCategoryFunc();
+        }
     }
 }
