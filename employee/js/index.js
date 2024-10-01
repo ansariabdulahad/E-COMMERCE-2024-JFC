@@ -82,5 +82,8 @@ const dynamicAjaxFunc = (link) => {
         if (link === "dynamic/category-design.html") {
             createCategoryFunc();
         }
+        if (link === "dynamic/brand-design.html") {
+            createBrandFunc();
+        }
     }
 }

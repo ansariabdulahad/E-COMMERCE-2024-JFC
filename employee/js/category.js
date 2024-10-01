@@ -70,6 +70,47 @@ const addNewCategoryFuncCall = () => {
     }
 }
 
+// start delete list category coding
+const deleteListCategory = (allDelBtn) => {
+    for (let btn of allDelBtn) {
+        btn.onclick = (e) => {
+            const tr = e.target.parentElement.parentElement.parentElement;
+            const index = tr.getAttribute("index");
+            allCategoryData.splice(index, 1);
+            localStorage.setItem("allCategoryData", JSON.stringify(allCategoryData));
+            readCategoryData();
+        }
+    }
+}
+
+// start edit list category coding
+const editListCategory = (allEditBtn) => {
+    for (let btn of allEditBtn) {
+        btn.onclick = () => {
+            let parent = btn.parentElement.parentElement;
+            let index = parent.getAttribute("index");
+            let allTd = parent.querySelectorAll("td");
+            let saveBtn = parent.querySelector(".save-btn")
+
+            allTd[1].contentEditable = true;
+            allTd[1].focus();
+            btn.classList.add("d-none");
+            saveBtn.classList.remove("d-none");
+
+            // save the edit button data
+            saveBtn.onclick = () => {
+                let category = allTd[1].innerHTML;
+                allCategoryData[index] = { category }; // allCategoryData.splice(index, 1, { category })
+                localStorage.setItem("allCategoryData", JSON.stringify(allCategoryData));
+                saveBtn.classList.add("d-none");
+                btn.classList.remove("d-none");
+                // readCategoryData();
+            }
+        }
+    }
+
+}
+
 // read category data from local storage and list in ui
 const readCategoryData = () => {
     let categoryList = document.querySelector(".category-list");
@@ -82,16 +123,27 @@ const readCategoryData = () => {
                 <td>${index + 1}</td>
                 <td>${data.category}</td>
                 <td>
-                    <button class="btn btn-primary p-1 px-2">
+                    <button class="btn btn-primary p-1 px-2 edit-btn">
                         <i class="fa fa-edit"></i>
                     </button>
-                    <button class="btn btn-danger p-1 px-2">
+                    <button class="btn btn-warning p-1 px-2 d-none save-btn">
+                        <i class="fa fa-save"></i>
+                    </button>
+                    <button class="btn btn-danger p-1 px-2 del-btn">
                         <i class="fa fa-trash"></i>
                     </button>
                 </td>
             </tr>
         `;
     })
+
+    // start delete list category coding
+    let allDelBtn = categoryList.querySelectorAll(".del-btn");
+    deleteListCategory(allDelBtn);
+
+    // start edit list category coding
+    let allEditBtn = categoryList.querySelectorAll(".edit-btn");
+    editListCategory(allEditBtn);
 }
 
 // start creating categories coding
