@@ -66,6 +66,8 @@ const dynamicRequestCategoryDesignPage = () => {
 
 // dynamic ajax request category-design page coding
 const dynamicAjaxFunc = (link) => {
+    dynamic_link = link;
+
     let page = document.querySelector(".page");
     let ajax = new XMLHttpRequest();
 
@@ -80,7 +82,7 @@ const dynamicAjaxFunc = (link) => {
 
         // call category js functions when page loaded
         if (link === "dynamic/category-design.html") {
-            createCategoryFunc();
+            createCategoryFunc(link);
         }
         if (link === "dynamic/brand-design.html") {
             createBrandFunc();

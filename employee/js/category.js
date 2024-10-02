@@ -2,11 +2,10 @@
 
 // global variables
 let allCategoryData = [];
+let dynamic_link = "";
 
 // get data from storage before saving
-if (localStorage.getItem("allCategoryData") !== null) {
-    allCategoryData = JSON.parse(localStorage.getItem("allCategoryData"));
-}
+allCategoryData = getAllData("allCategoryData");
 
 // add the category field 
 const addCategoryFieldFuncCall = () => {
@@ -58,14 +57,9 @@ const addNewCategoryFuncCall = () => {
             });
         }
 
-        localStorage.setItem("allCategoryData", JSON.stringify(allCategoryData));
-        Swal.fire({
-            text: "Category created successfully",
-            icon: "success"
-        });
-
+        insertData("allCategoryData", allCategoryData);
+        insertMessage();
         categoryForm.reset('');
-
         readCategoryData();
     }
 }
@@ -77,8 +71,7 @@ const deleteListCategory = (allDelBtn) => {
             const tr = e.target.parentElement.parentElement.parentElement;
             const index = tr.getAttribute("index");
             allCategoryData.splice(index, 1);
-            localStorage.setItem("allCategoryData", JSON.stringify(allCategoryData));
-            readCategoryData();
+            deleteAndUpdateMessageFunc("allCategoryData", allCategoryData, dynamic_link, "deleted");
         }
     }
 }
@@ -101,10 +94,14 @@ const editListCategory = (allEditBtn) => {
             saveBtn.onclick = () => {
                 let category = allTd[1].innerHTML;
                 allCategoryData[index] = { category }; // allCategoryData.splice(index, 1, { category })
-                localStorage.setItem("allCategoryData", JSON.stringify(allCategoryData));
-                saveBtn.classList.add("d-none");
-                btn.classList.remove("d-none");
-                // readCategoryData();
+                deleteAndUpdateMessageFunc(
+                    "allCategoryData",
+                    allCategoryData,
+                    dynamic_link,
+                    "updated"
+                );
+                // saveBtn.classList.add("d-none");
+                // btn.classList.remove("d-none");
             }
         }
     }
@@ -147,7 +144,8 @@ const readCategoryData = () => {
 }
 
 // start creating categories coding
-const createCategoryFunc = () => {
+const createCategoryFunc = (link) => {
+    dynamic_link = link;
     // add new fields and delete field controls
     addCategoryFieldFuncCall();
 
