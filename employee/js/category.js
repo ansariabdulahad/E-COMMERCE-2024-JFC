@@ -1,11 +1,16 @@
 // start creating dynamic category page coding
 
-// global variables
-let allCategoryData = [];
-let dynamic_link = "";
-
 // get data from storage before saving
 allCategoryData = getAllData("allCategoryData");
+
+// delete the category coding
+const deleteCategoryFuncCall = (allDelBtn) => {
+    for (let btn of allDelBtn) {
+        btn.onclick = (e) => {
+            btn.parentElement.remove();
+        }
+    }
+}
 
 // add the category field 
 const addCategoryFieldFuncCall = () => {
@@ -17,7 +22,7 @@ const addCategoryFieldFuncCall = () => {
         inputBoxEl.innerHTML += `
             <div>
                 <i style="cursor: pointer" class="fa fa-trash mb-2 float-end text-danger del-btn"></i>
-                <input type="text" placeholder="Category" class="form-control mb-3" required>
+                <input type="text" placeholder="Category" class="form-control mb-3 shadow-sm" required>
             </div>
         `;
 
@@ -25,20 +30,6 @@ const addCategoryFieldFuncCall = () => {
         let allDelBtn = inputBoxEl.querySelectorAll(".del-btn");
 
         deleteCategoryFuncCall(allDelBtn);
-    }
-}
-
-// delete the category coding
-const deleteCategoryFuncCall = (allDelBtn) => {
-    for (let btn of allDelBtn) {
-        btn.onclick = (e) => {
-            e.target.parentElement.remove();
-
-            Swal.fire({
-                text: "Category deleted successfully",
-                icon: "success"
-            });
-        }
     }
 }
 

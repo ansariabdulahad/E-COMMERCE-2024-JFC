@@ -3,6 +3,11 @@ window.onload = () => {
     dynamicRequestCategoryDesignPage();
 }
 
+// global variables
+let allCategoryData = [];
+let allBrandData = [];
+let dynamic_link = "";
+
 // navbar toggler js function
 const toggleSideNavbar = () => {
     let toggleNavBtn = document.querySelector(".toggler-btn");
