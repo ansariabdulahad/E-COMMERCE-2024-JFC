@@ -90,7 +90,7 @@ const dynamicAjaxFunc = (link) => {
             createCategoryFunc(link);
         }
         if (link === "dynamic/brand-design.html") {
-            createBrandFunc();
+            createBrandFunc(link);
         }
     }
 }

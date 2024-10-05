@@ -2,7 +2,6 @@
 
 // get data from storage before saving
 allBrandData = getAllData("allBrandData");
-console.log(allBrandData);
 
 // delete the dynamic fields
 const deleteDynamicBrandFields = (allDelBtns) => {
@@ -14,8 +13,64 @@ const deleteDynamicBrandFields = (allDelBtns) => {
 
 };
 
+// delete the dynamically listed brands & categories
+const deleteDynamicBrandList = (allDelBtns, filteredBrandList) => {
+    for (let btn of allDelBtns) {
+        btn.onclick = () => {
+            let parent = btn.parentElement.parentElement;
+            let index = parent.getAttribute("index");
+            let id = parent.getAttribute("id");
+
+            let CurrentBrandIndex = allBrandData.findIndex((data) => data.id == id);
+
+            allBrandData.splice(CurrentBrandIndex, 1);
+            filteredBrandList.splice(index, 1);
+
+            deleteAndUpdateMessageFunc(
+                "allBrandData",
+                allBrandData,
+                dynamic_link,
+                "delete",
+                filteredBrandList
+            );
+        }
+    }
+};
+
+// read dynamic brand list
+const readBrandData = (filteredBrandList) => {
+    let brandListTBodyEl = document.querySelector(".brand-list");
+    let dataCount = 0;
+
+    brandListTBodyEl.innerHTML = '';
+    for (let brandData of filteredBrandList) {
+        brandListTBodyEl.innerHTML += `
+            <tr id=${brandData.id} index=${dataCount}>
+                <td>${dataCount + 1}</td>
+                <td>${brandData.category}</td>
+                <td>${brandData.brand}</td>
+                <td>
+                    <button class="btn btn-primary p-1 px-2 edit-btn">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger p-1 px-2 del-btn">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        dataCount++;
+    }
+
+    // delete the dynamically listed brands & categories
+    let allDelBtns = brandListTBodyEl.querySelectorAll(".del-btn");
+    deleteDynamicBrandList(allDelBtns, filteredBrandList);
+
+}
+
 // start creating dynamic brand 
-const createBrandFunc = () => {
+const createBrandFunc = (link) => {
+    dynamic_link = link;
     let brandForm = document.querySelector(".brand-form");
     let inputBox = brandForm.querySelector(".input-box");
     let allBtn = brandForm.querySelectorAll("button");
@@ -79,28 +134,20 @@ const createBrandFunc = () => {
         }
     }
 
-    // show the brand list
+    // show the category brands list
     categorySelectList.onchange = () => {
-        let brandListTBodyEl = document.querySelector(".brand-list");
-        let brandList = allBrandData.filter(({ category }) => category === categorySelectList.value);
+        let filteredBrandList = [];
+        let id = 0;
 
-        brandListTBodyEl.innerHTML = '';
-        brandList.forEach((brand, index) => {
-            brandListTBodyEl.innerHTML += `
-                <tr index=${index}>
-                    <td>${index + 1}</td>
-                    <td>${brand.category}</td>
-                    <td>${brand.brand}</td>
-                    <td>
-                        <button class="btn btn-primary p-1 px-2">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                        <button class="btn btn-danger p-1 px-2">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            `;
-        });
+        for (let brandData of allBrandData) {
+            if (brandData.category === categorySelectList.value) {
+                brandData["id"] = id;
+                filteredBrandList.push(brandData);
+            }
+            id++;
+        }
+
+        // show the brand list
+        readBrandData(filteredBrandList);
     }
 }

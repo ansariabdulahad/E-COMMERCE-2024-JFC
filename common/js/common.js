@@ -18,7 +18,7 @@ const insertMessage = () => {
     });
 }
 
-const deleteAndUpdateMessageFunc = (table_name, data, link, message) => {
+const deleteAndUpdateMessageFunc = (table_name, data, link, message, filterData) => {
     Swal.fire({
         title: "Are you sure?",
         text: `You won't to ${message} this!`,
@@ -30,10 +30,11 @@ const deleteAndUpdateMessageFunc = (table_name, data, link, message) => {
     }).then((result) => {
         if (result.isConfirmed) {
             insertData(table_name, data);
-
             // check dynamic link
             if (link === "dynamic/category-design.html") {
                 readCategoryData();
+            } else if (link === "dynamic/brand-design.html") {
+                readBrandData(filterData);
             }
 
             Swal.fire({
