@@ -1,0 +1,170 @@
+<!-- navbar -->
+<nav class="navbar bg-white shadow-sm">
+    <button class="btn toggler-btn">
+        <i class="fas fa-align-left"></i>
+    </button>
+</nav>
+
+<!-- Product section -->
+<div class="row p-4 m-auto animate__animated animate__zoomIn">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 bg-white shadow-sm p-4">
+        <h5>
+            CREATE PRODUCT
+            <i class="fa-solid fa-rotate-right float-end"></i>
+        </h5>
+
+        <form class="product-form">
+            <div class="row mb-3">
+                <div class="col-md-4 mb-3">
+                    <select class="form-select shadow-sm">
+                        <option value="choose category">Choose Category</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <select class="form-select shadow-sm">
+                        <option value="choose brand">Choose Brand</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control shadow-sm" placeholder="Product name Nokia-110 ">
+                </div>
+            </div>
+
+            <textarea class="form-control shadow-sm mb-3" row="10" placeholder="Description..."></textarea>
+
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                    <input type="Number" class="form-control shadow-sm mb-3" placeholder="Price">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="Number" class="form-control shadow-sm mb-3" placeholder="Quantity">
+                </div>
+            </div>
+
+            <div class="row mb-3 d-flex justify-content-center">
+                <div class="col-md-2 mb-3 text-center bg-info text-white p-2 mx-1 rounded">
+                    <input type="file" class="form-control shadow-sm mb-3">
+                    <i class="fa-solid fa-camera-retro fs-3"></i>
+                    <h6>THUMBNAIL</h6>
+                    <p>250*316</p>
+                </div>
+                <div class="col-md-2 mb-3 text-center bg-info text-white p-2 mx-1 rounded">
+                    <input type="file" class="form-control shadow-sm mb-3">
+                    <i class="fa-solid fa-camera-retro fs-3"></i>
+                    <h6>FRONT</h6>
+                    <p>316*615</p>
+                </div>
+                <div class="col-md-2 mb-3 text-center bg-info text-white p-2 mx-1 rounded">
+                    <input type="file" class="form-control shadow-sm mb-3">
+                    <i class="fa-solid fa-camera-retro fs-3"></i>
+                    <h6>BACK</h6>
+                    <p>316*615</p>
+                </div>
+                <div class="col-md-2 mb-3 text-center bg-info text-white p-2 mx-1 rounded">
+                    <input type="file" class="form-control shadow-sm mb-3">
+                    <i class="fa-solid fa-camera-retro fs-3"></i>
+                    <h6>RIGHT</h6>
+                    <p>316*615</p>
+                </div>
+                <div class="col-md-2 mb-3 text-center bg-info text-white p-2 mx-1 rounded">
+                    <input type="file" class="form-control shadow-sm mb-3">
+                    <i class="fa-solid fa-camera-retro fs-3"></i>
+                    <h6>LEFT</h6>
+                    <p>316*615</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<!-- Product List section -->
+<div class="row p-4 m-auto animate__animated animate__zoomIn">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 bg-white shadow-sm p-4">
+        <h5>
+            PRODUCT LIST
+            <i class="fa-solid fa-rotate-right float-end"></i>
+        </h5>
+
+        <div class="row mb-3">
+            <div class="col-md-6 mb-3">
+                <select class="form-select shadow-sm category-list-select">
+                    <option value="choose category">Choose Category</option>
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <select class="form-select shadow-sm brand-list-select">
+                    <option value="choose brand">Choose Brand</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-12 mb-3 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>SR.NO</th>
+                            <th>CATEGORY</th>
+                            <th>BRAND</th>
+                            <th>NAME</th>
+                            <th>DESCRIPTION</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>THUMBNAIL</th>
+                            <th>FRONT</th>
+                            <th>BACK</th>
+                            <th>RIGHT</th>
+                            <th>LEFT</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-nowrap">
+                        <tr>
+                            <td>1</td>
+                            <td>Mobile</td>
+                            <td>Oppo</td>
+                            <td>Nokia</td>
+                            <td>Nice Mobile</td>
+                            <td>12000</td>
+                            <td>120</td>
+                            <td>
+                                <img src="http://localhost/e-commerce-2024-jfc/common/images/avatar.jpeg"
+                                    alt="thumb-img" width="50">
+                            </td>
+                            <td>
+                                <img src="http://localhost/e-commerce-2024-jfc/common/images/avatar.jpeg"
+                                    alt="thumb-img" width="50">
+                            </td>
+                            <td>
+                                <img src="http://localhost/e-commerce-2024-jfc/common/images/avatar.jpeg"
+                                    alt="thumb-img" width="50">
+                            </td>
+                            <td>
+                                <img src="http://localhost/e-commerce-2024-jfc/common/images/avatar.jpeg"
+                                    alt="thumb-img" width="50">
+                            </td>
+                            <td>
+                                <img src="http://localhost/e-commerce-2024-jfc/common/images/avatar.jpeg"
+                                    alt="thumb-img" width="50">
+                            </td>
+                            <td>
+                                <button class="btn btn-primary px-1 py-1">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-danger px-1 py-1">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>

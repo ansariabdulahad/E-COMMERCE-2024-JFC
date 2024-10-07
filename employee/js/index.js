@@ -6,7 +6,13 @@ window.onload = () => {
 // global variables
 let allCategoryData = [];
 let allBrandData = [];
+let allProductData = [];
 let dynamic_link = "";
+let thumbnail = "";
+let front = "";
+let back = "";
+let right = "";
+let left = "";
 
 // navbar toggler js function
 const toggleSideNavbar = () => {
@@ -72,7 +78,6 @@ const dynamicRequestCategoryDesignPage = () => {
 // dynamic ajax request category-design page coding
 const dynamicAjaxFunc = (link) => {
     dynamic_link = link;
-
     let page = document.querySelector(".page");
     let ajax = new XMLHttpRequest();
 
@@ -91,6 +96,9 @@ const dynamicAjaxFunc = (link) => {
         }
         if (link === "dynamic/brand-design.html") {
             createBrandFunc(link);
+        }
+        if (link === "dynamic/product-design.html") {
+            createProductFunc(link);
         }
     }
 }

@@ -37,6 +37,43 @@ const deleteDynamicBrandList = (allDelBtns, filteredBrandList) => {
     }
 };
 
+// edit the dynamically listed brands & categories
+const editDynamicBrandList = (allEditBtns, filteredBrandList) => {
+    for (let btn of allEditBtns) {
+        btn.onclick = () => {
+            let parent = btn.parentElement.parentElement;
+            let id = parent.id;
+            let index = parent.getAttribute("index");
+            let allTds = parent.querySelectorAll("td");
+            let allBtns = allTds[3].querySelectorAll("button");
+
+            allBtns[1].classList.remove("d-none");
+            allBtns[0].classList.add("d-none");
+
+            allTds[2].contentEditable = true;
+            allTds[2].focus();
+
+            // save the edited data when clicked on savebtn
+            allBtns[1].onclick = () => {
+
+                allBrandData[id].brand = allTds[2].innerHTML;
+                filteredBrandList[index].brand = allTds[2].innerHTML;
+
+                allBtns[1].classList.add("d-none");
+                allBtns[0].classList.remove("d-none");
+
+                deleteAndUpdateMessageFunc(
+                    "allBrandData",
+                    allBrandData,
+                    dynamic_link,
+                    "update",
+                    filteredBrandList
+                )
+            }
+        }
+    }
+};
+
 // read dynamic brand list
 const readBrandData = (filteredBrandList) => {
     let brandListTBodyEl = document.querySelector(".brand-list");
@@ -53,6 +90,9 @@ const readBrandData = (filteredBrandList) => {
                     <button class="btn btn-primary p-1 px-2 edit-btn">
                         <i class="fa fa-edit"></i>
                     </button>
+                    <button class="btn btn-primary p-1 px-2 save-btn bg-warning d-none">
+                        <i class="fa fa-save"></i>
+                    </button>
                     <button class="btn btn-danger p-1 px-2 del-btn">
                         <i class="fa fa-trash"></i>
                     </button>
@@ -65,6 +105,10 @@ const readBrandData = (filteredBrandList) => {
     // delete the dynamically listed brands & categories
     let allDelBtns = brandListTBodyEl.querySelectorAll(".del-btn");
     deleteDynamicBrandList(allDelBtns, filteredBrandList);
+
+    // edit the dynamically listed brands & categories
+    let allEditBtns = brandListTBodyEl.querySelectorAll(".edit-btn");
+    editDynamicBrandList(allEditBtns, filteredBrandList);
 
 }
 
