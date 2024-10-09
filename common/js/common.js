@@ -29,12 +29,17 @@ const deleteAndUpdateMessageFunc = (table_name, data, link, message, filterData)
         confirmButtonText: `Yes, ${message} it!`
     }).then((result) => {
         if (result.isConfirmed) {
+            // let isUpdated = false;
             insertData(table_name, data);
             // check dynamic link
             if (link === "dynamic/category-design.html") {
                 readCategoryData();
             } else if (link === "dynamic/brand-design.html") {
                 readBrandData(filterData);
+            } else if (link === "dynamic/product-design.html") {
+                readProductData(filterData);
+                // isUpdated = true;
+                // return true;
             }
 
             Swal.fire({
@@ -42,6 +47,7 @@ const deleteAndUpdateMessageFunc = (table_name, data, link, message, filterData)
                 text: `Your file has been ${message}.`,
                 icon: "success"
             });
+            // return isUpdated;
         } else {
             Swal.fire({
                 title: "SAVED",
