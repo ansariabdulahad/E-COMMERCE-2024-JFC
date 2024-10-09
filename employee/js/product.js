@@ -20,6 +20,8 @@ const imageFileReader = (inputIndex, imageVariable) => {
                 break;
             case "left": left = e.target.result;
                 break;
+            case "brandingLogo": brandingLogo = e.target.result;
+                break;
             default: null;
         }
     }
@@ -135,25 +137,25 @@ const editDynamicProductList = (allEditBtns, filteredProducts) => {
                 );
 
                 // if (isUpdated) {
-                    // reset all things
-                    thumbnail = "";
-                    front = "";
-                    back = "";
-                    right = "";
-                    left = "";
+                // reset all things
+                thumbnail = "";
+                front = "";
+                back = "";
+                right = "";
+                left = "";
 
-                    // assign the values
-                    allSelect[0].value = "choose category";
-                    allSelect[0].disabled = false;
-                    option.value = "choose brand";
-                    option.innerHTML = "Choose Brand";
-                    allSelect[1].disabled = false;
-                    allInputs[0].value = "";
-                    textAreaEl.value = "";
-                    allInputs[1].value = "";
-                    allInputs[2].value = "";
-                    allBtns[0].classList.remove("d-none");
-                    allBtns[1].classList.add("d-none");
+                // assign the values
+                allSelect[0].value = "choose category";
+                allSelect[0].disabled = false;
+                option.value = "choose brand";
+                option.innerHTML = "Choose Brand";
+                allSelect[1].disabled = false;
+                allInputs[0].value = "";
+                textAreaEl.value = "";
+                allInputs[1].value = "";
+                allInputs[2].value = "";
+                allBtns[0].classList.remove("d-none");
+                allBtns[1].classList.add("d-none");
                 // }
             }
         }

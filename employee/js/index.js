@@ -7,12 +7,15 @@ window.onload = () => {
 let allCategoryData = [];
 let allBrandData = [];
 let allProductData = [];
+let allBrandingDetailsData = [];
+
 let dynamic_link = "";
 let thumbnail = "";
 let front = "";
 let back = "";
 let right = "";
 let left = "";
+let brandingLogo = "";
 
 // navbar toggler js function
 const toggleSideNavbar = () => {
@@ -94,11 +97,14 @@ const dynamicAjaxFunc = (link) => {
         if (link === "dynamic/category-design.html") {
             createCategoryFunc(link);
         }
-        if (link === "dynamic/brand-design.html") {
+        else if (link === "dynamic/brand-design.html") {
             createBrandFunc(link);
         }
-        if (link === "dynamic/product-design.html") {
+        else if (link === "dynamic/product-design.html") {
             createProductFunc(link);
+        }
+        else if (link === "dynamic/branding-design.html") {
+            createBrandingFunc(link);
         }
     }
 }
