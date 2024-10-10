@@ -7,7 +7,7 @@ window.onload = () => {
 let allCategoryData = [];
 let allBrandData = [];
 let allProductData = [];
-let allBrandingDetailsData = [];
+let allBrandingData = [];
 
 let dynamic_link = "";
 let thumbnail = "";

@@ -1,5 +1,5 @@
 // read localstorage data of branding details
-// allBrandingDetailsData = getAllData("allBrandingDetailsData");
+// allBrandingData = getAllData("allBrandingData");
 
 // start branding code
 const createBrandingFunc = (link) => {
@@ -10,6 +10,7 @@ const createBrandingFunc = (link) => {
     let allTextareas = brandingForm.querySelectorAll("textarea");
     let lengthCountTextareas = brandingForm.querySelectorAll(".textarea");
     let allBtns = brandingForm.querySelectorAll("button");
+    let editBrandingBtn = document.querySelector(".edit-branding-btn");
 
     // count textarea value length and update label
     for (let textarea of lengthCountTextareas) {
@@ -36,7 +37,68 @@ const createBrandingFunc = (link) => {
     brandingForm.onsubmit = (e) => {
         e.preventDefault();
 
-        allBrandingDetailsData.push({
+        insertBrandingFunc();
+        readbrandingFunc();
+    }
+
+    // reading branding details data only one branding detailes can be stored
+    const readbrandingFunc = () => {
+        let brandingData = getAllData("allBrandingData");
+
+        if (brandingData && brandingData.length > 0) {
+            const { brandingName, brandingDomain, brandingEmail, brandingFacebook,
+                brandingTwitter, brandingInstagram, brandingMobile, brandingAddress, brandingAboutUs,
+                brandingPrivatePolicy, brandingCookiePolicy, brandingTermsAndConditions
+            } = brandingData[0];
+
+            // store data in fields
+            allInputs[0].value = brandingName;
+            brandingLogo = brandingData[0].brandingLogo;
+            allInputs[2].value = brandingDomain;
+            allInputs[3].value = brandingEmail;
+            allInputs[4].value = brandingFacebook;
+            allInputs[5].value = brandingTwitter;
+            allInputs[6].value = brandingInstagram;
+            allInputs[7].value = brandingMobile;
+            allTextareas[0].value = brandingAddress;
+            allTextareas[1].value = brandingAboutUs;
+            allTextareas[2].value = brandingPrivatePolicy;
+            allTextareas[3].value = brandingCookiePolicy;
+            allTextareas[4].value = brandingTermsAndConditions;
+
+            // disabled all input fields and textareas
+            for (let input of allInputs) {
+                input.disabled = true;
+            }
+            for (let textarea of allTextareas) {
+                textarea.disabled = true;
+            }
+
+            allBtns[0].classList.add("d-none");
+            allBtns[1].classList.remove("d-none");
+            editBrandingBtn.classList.remove("d-none");
+
+            editBrandingBtn.onclick = () => {
+
+                // enabled all input fields and textareas
+                for (let input of allInputs) {
+                    input.disabled = false;
+                }
+                for (let textarea of allTextareas) {
+                    textarea.disabled = false;
+                }
+
+                editBrandingBtn.classList.add("d-none");
+                allBtns[1].disabled = false;
+            }
+            allBtns[1].disabled = true;
+        }
+    }
+    readbrandingFunc();
+
+    // inserting branding data
+    const insertBrandingFunc = () => {
+        allBrandingData.push({
             brandingName: allInputs[0].value,
             brandingLogo: brandingLogo,
             brandingDomain: allInputs[2].value,
@@ -52,8 +114,7 @@ const createBrandingFunc = (link) => {
             brandingTermsAndConditions: allTextareas[4].value
         });
 
-        insertData("allBrandingDetailsData", allBrandingDetailsData);
+        insertData("allBrandingData", allBrandingData);
         insertMessage();
     }
-
 }
