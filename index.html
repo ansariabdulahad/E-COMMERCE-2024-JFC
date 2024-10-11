@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap common css & js link -->
+    <link rel="stylesheet" href="common/css/bootstrap.min.css">
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sweetalert common js link -->
+    <script src="common/js/sweetalert2.js"></script>
+
+    <!-- animate.css common css link -->
+    <link rel="stylesheet" href="common/css/animate.min.css">
+
+    <!-- fontawesom css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <title>Employee Panel</title>
+</head>
+
+<body>
+    <!-- homepage navbar -->
+    <nav class="navbar navbar-expand-sm bg-white shadow-sm">
+        <div class="container">
+            <div class="d-md-flex gap-2 w-100 justify-content-between align-items-center">
+                <div class="d-flex gap-2 align-items-center justify-content-center">
+                    <img src="common/images/avatar.jpeg" alt="logo" width="50px" height="50px"
+                        class="rounded-circle shadow"
+                        style="object-position: center; object-fit: cover; border: 5px solid blueviolet;">
+                    <h4 class="navbar-brand text-decoration-underline btn fw-bold">E-COMMERCE JFC</h4>
+                </div>
+
+                <div>
+                    <ul class="navbar-nav dynamic-navbar-box">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark fw-bold btn-outline-light text-center">Home</a>
+                        </li>
+
+                        <!-- render navbar dynamically from backends -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main content of homepage -->
+    <div class="container bg-white p-4 shadow-sm mt-4 mb-4"></div>
+
+    <!-- footer for homepage -->
+    <div class="container-fluid bg-white p-4 shadow-sm mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="d-md-flex align-items-center gap-2">
+                    <div class="col-md-6">
+                        <div class="input-group shadow-sm my-2">
+                            <input type="text" class="form-control shadow-sm" placeholder="Enter email" required>
+                            <span class="input-group-text fw-bold btn bg-dark text-white">Subscribe</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 d-flex justify-content-md-end align-items-center">
+                        <div class="btn-group">
+                            <button class="btn border bg-dark text-white fw-bold shadow-sm">
+                                Follow
+                            </button>
+                            <button class="btn border text-dark fw-bold shadow-sm">
+                                <i class="fa-brands fa-facebook"></i>
+                            </button>
+                            <button class="btn border text-dark fw-bold shadow-sm">
+                                <i class="fa-brands fa-twitter"></i>
+                            </button>
+                            <button class="btn border text-dark fw-bold shadow-sm">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </button>
+                            <button class="btn border text-dark fw-bold shadow-sm">
+                                <i class="fa-brands fa-instagram"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-dark p-4 bottom-0">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h4 class="text-white text-decoration-underline">CATEGORY</h4>
+
+                    <ul class="footer-category-box">
+                        <li class="mb-2">
+                            <a href="#" class="text-white-50 btn-outline-success p-1 rounded">Home</a>
+                        </li>
+
+                        <!-- render footer category from backend -->
+                    </ul>
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3">
+                    <h4 class="text-white text-decoration-underline">POLICY</h4>
+
+                    <ul>
+                        <li class="mb-2">
+                            <a href="#" class="text-white-50 btn-outline-success p-1 rounded">About Us</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-white-50 btn-outline-success p-1 rounded">Private Policy</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-white-50 btn-outline-success p-1 rounded">Cookie Policy</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-white-50 btn-outline-success p-1 rounded">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-4">
+                    <h4 class="text-white text-decoration-underline">CONTACT</h4>
+
+                    <p class="text-white-50 p-1 rounded fw-bold mb-2">Address:
+                        <span class="text-success text-decoration-underline">Bhiwandi,
+                            Thane, Maharashtra
+                        </span>
+                    </p>
+                    <p class="text-white-50 p-1 rounded fw-bold mb-2">Email:
+                        <a href="#" class="text-success text-decoration-underline">ansariabdulahad3@gmail.com
+                        </a>
+                    </p>
+                    <p class="text-white-50 p-1 rounded fw-bold mb-2">Contact:
+                        <a href="#" class="text-success text-decoration-underline">+91 9545282408
+                        </a>
+                    </p>
+                    <p class="text-white-50 p-1 rounded fw-bold mb-2">Website:
+                        <a href="#" class="text-success text-decoration-underline">justforcode.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js file link -->
+    <script src="common/js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/dynamic.js"></script>
+</body>
+
+</html>
