@@ -19,41 +19,40 @@ const insertMessage = () => {
 }
 
 const deleteAndUpdateMessageFunc = (table_name, data, link, message, filterData) => {
-    Swal.fire({
-        title: "Are you sure?",
-        text: `You won't to ${message} this!`,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: `Yes, ${message} it!`
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // let isUpdated = false;
-            insertData(table_name, data);
-            // check dynamic link
-            if (link === "dynamic/category-design.html") {
-                readCategoryData();
-            } else if (link === "dynamic/brand-design.html") {
-                readBrandData(filterData);
-            } else if (link === "dynamic/product-design.html") {
-                readProductData(filterData);
-                // isUpdated = true;
-                // return true;
-            }
+    return new Promise((resolve, reject) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `You won't to ${message} this!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: `Yes, ${message} it!`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                insertData(table_name, data);
+                // check dynamic link
+                if (link === "dynamic/category-design.html") {
+                    readCategoryData();
+                } else if (link === "dynamic/brand-design.html") {
+                    readBrandData(filterData);
+                } else if (link === "dynamic/product-design.html") {
+                    readProductData(filterData);
+                    resolve(true);
+                }
 
-            Swal.fire({
-                title: message.toUpperCase(),
-                text: `Your file has been ${message}.`,
-                icon: "success"
-            });
-            // return isUpdated;
-        } else {
-            Swal.fire({
-                title: "SAVED",
-                text: `Your file is not ${message}.`,
-                icon: "success"
-            });
-        }
-    });
+                Swal.fire({
+                    title: message.toUpperCase(),
+                    text: `Your file has been ${message}.`,
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: "SAVED",
+                    text: `Your file is not ${message}.`,
+                    icon: "success"
+                });
+            }
+        });
+    })
 }

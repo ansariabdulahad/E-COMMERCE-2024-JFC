@@ -1,3 +1,6 @@
+// get branding data
+const brandingData = getAllData("allBrandingData");
+
 // creating dynamic navbar
 const dynamicNavbarFunc = () => {
     let allCategoryData = getAllData("allCategoryData");
@@ -6,6 +9,12 @@ const dynamicNavbarFunc = () => {
 
     // show dynamic navbar menu items
     if (allCategoryData && allCategoryData.length > 0) {
+        dynamicNavbarBox.innerHTML = `
+            <li class="nav-item">
+                <a href="http://localhost/e-commerce-2024-jfc/"
+                    class="nav-link text-dark fw-bold btn-outline-light text-center">Home</a>
+            </li>
+        `;
         for (let category of allCategoryData) {
             dynamicNavbarBox.innerHTML += `
                 <li class="nav-item">
@@ -37,4 +46,16 @@ const dynamicNavbarFunc = () => {
 
 }
 
-dynamicNavbarFunc();
+// dynamic request handlers for pages
+const dynamicRequest = (element, pageRequest) => {
+    const ajax = new XMLHttpRequest();
+
+    ajax.open('POST', pageRequest, true);
+    ajax.send();
+
+    // get response
+    ajax.onload = () => {
+        element.innerHTML = ajax.response;
+        dynamicNavbarFunc()
+    }
+}

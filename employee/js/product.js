@@ -95,7 +95,7 @@ const editDynamicProductList = (allEditBtns, filteredProducts) => {
             allBtns[1].classList.remove("d-none");
 
             // update coding
-            allBtns[1].onclick = () => {
+            allBtns[1].onclick = async () => {
                 let currentProductIndex = allProductData.findIndex((product) => product.id == id)
 
                 allProductData[currentProductIndex] = {
@@ -128,7 +128,7 @@ const editDynamicProductList = (allEditBtns, filteredProducts) => {
                     left: left || "http://localhost/e-commerce-2024-jfc/common/images/avatar.jpeg"
                 };
 
-                let isUpdated = deleteAndUpdateMessageFunc(
+                let isUpdated = await deleteAndUpdateMessageFunc(
                     "allProductData",
                     allProductData,
                     dynamic_link,
@@ -136,27 +136,27 @@ const editDynamicProductList = (allEditBtns, filteredProducts) => {
                     filteredProducts
                 );
 
-                // if (isUpdated) {
-                // reset all things
-                thumbnail = "";
-                front = "";
-                back = "";
-                right = "";
-                left = "";
+                if (isUpdated) {
+                    // reset all things
+                    thumbnail = "";
+                    front = "";
+                    back = "";
+                    right = "";
+                    left = "";
 
-                // assign the values
-                allSelect[0].value = "choose category";
-                allSelect[0].disabled = false;
-                option.value = "choose brand";
-                option.innerHTML = "Choose Brand";
-                allSelect[1].disabled = false;
-                allInputs[0].value = "";
-                textAreaEl.value = "";
-                allInputs[1].value = "";
-                allInputs[2].value = "";
-                allBtns[0].classList.remove("d-none");
-                allBtns[1].classList.add("d-none");
-                // }
+                    // assign the values
+                    allSelect[0].value = "choose category";
+                    allSelect[0].disabled = false;
+                    option.value = "choose brand";
+                    option.innerHTML = "Choose Brand";
+                    allSelect[1].disabled = false;
+                    allInputs[0].value = "";
+                    textAreaEl.value = "";
+                    allInputs[1].value = "";
+                    allInputs[2].value = "";
+                    allBtns[0].classList.remove("d-none");
+                    allBtns[1].classList.add("d-none");
+                }
             }
         }
     }

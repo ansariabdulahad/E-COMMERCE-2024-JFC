@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap common css & js link -->
-    <link rel="stylesheet" href="common/css/bootstrap.min.css">
-    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../common/css/bootstrap.min.css">
+    <script src="../common/js/bootstrap.bundle.min.js"></script>
 
     <!-- Sweetalert common js link -->
-    <script src="common/js/sweetalert2.js"></script>
+    <script src="../common/js/sweetalert2.js"></script>
 
     <!-- animate.css common css link -->
-    <link rel="stylesheet" href="common/css/animate.min.css">
+    <link rel="stylesheet" href="../common/css/animate.min.css">
 
     <!-- fontawesom css link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -21,7 +21,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- css file link -->
-    <link rel="stylesheet" href="css/index.css">
 
     <title>Employee Panel</title>
 </head>
@@ -33,10 +32,11 @@
     </div>
 
     <!-- main content of homepage -->
-    <div class="container bg-white p-4 shadow-lg rounded mb-4 animate__animated animate__zoomIn"
-        style="margin-top: 80px;">
+    <div class="container bg-white p-4 shadow-sm mb-4 animate__animated animate__zoomIn" style="margin-top: 80px;">
 
-        <!-- render from backend -->
+        <h3 class="text-center fw-bold mb-3">Cookie Policy</h3>
+        <hr>
+        <div class="cookie-box"></div>
 
     </div>
 
@@ -46,18 +46,20 @@
     </div>
 
     <!-- js file link -->
-    <script src="common/js/common.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/dynamic.js"></script>
+    <script src="../common/js/common.js"></script>
+    <script src="../js/dynamic.js"></script>
 
     <script>
         const navbarBoxEl = document.querySelector(".navbar-box");
         const footerBoxEl = document.querySelector(".footer-box");
+        const cookieBoxEl = document.querySelector(".cookie-box");
 
         // request dynamic navbar page
-        dynamicRequest(navbarBoxEl, "pages/navbar.html");
-        dynamicRequest(footerBoxEl, "pages/footer.html");
+        dynamicRequest(navbarBoxEl, "navbar.html");
+        dynamicRequest(footerBoxEl, "footer.html");
 
+        // about us page
+        cookieBoxEl.innerHTML = brandingData[0].brandingCookiePolicy
     </script>
 </body>
 
