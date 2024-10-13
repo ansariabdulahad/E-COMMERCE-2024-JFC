@@ -2,3 +2,9 @@ a {
   text-decoration: none !important;
   letter-spacing: 0.09rem !important;
 }
+
+@media (max-width: 767px) {
+  nav {
+    position: relative !important; 
+  }
+}

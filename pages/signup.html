@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap common css & js link -->
+    <link rel="stylesheet" href="../common/css/bootstrap.min.css">
+    <script src="../common/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sweetalert common js link -->
+    <script src="../common/js/sweetalert2.js"></script>
+
+    <!-- animate.css common css link -->
+    <link rel="stylesheet" href="../common/css/animate.min.css">
+
+    <!-- fontawesom css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css file link -->
+
+    <title>Signup Panel</title>
+</head>
+
+<body>
+    <!-- homepage navbar -->
+    <div class="navbar-box">
+        <!-- render navbar dynamically from backend -->
+    </div>
+
+    <!-- main content of homepage -->
+    <div class="container bg-white p-4 shadow-sm mb-4 animate__animated animate__zoomIn" style="margin-top: 80px;">
+
+        <h3 class="text-center fw-bold mb-3">CREATE AN ACCOUNT</h3>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Fullname</span>
+                        <input type="text" class="form-control shadow-sm" placeholder="Enter full name" required>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Email</span>
+                        <input type="email" class="form-control shadow-sm" placeholder="Enter email" required>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Password</span>
+                        <input type="password" class="form-control shadow-sm" placeholder="Enter password" required>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Mobile</span>
+                        <input type="tel" class="form-control shadow-sm" placeholder="Enter mobile" required>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Address</span>
+                        <textarea class="form-control shadow-sm" placeholder="Enter address..." required></textarea>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">State</span>
+                        <input type="text" class="form-control shadow-sm" placeholder="Enter state" required>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Country</span>
+                        <input type="text" class="form-control shadow-sm" placeholder="Enter country" required>
+                    </div>
+                    <div class="input-group mb-3 shadow-sm">
+                        <span class="input-group-text fw-bold">Pincode</span>
+                        <input type="number" class="form-control shadow-sm" placeholder="Enter pincode" required>
+                    </div>
+                    <button class="btn btn-dark w-100 fw-bold shadow-sm" type="submit">Register Now</button>
+                </form>
+            </div>
+
+            <div
+                class="col-md-6 d-flex flex-column justify-content-center align-items-center bg-light rounded shadow-sm">
+                <h3 class="fw-bold">OLD CUSTOMER !</h3>
+                <p class="text-danger">ALREADY HAVE AN ACCOUNT</p>
+                <a href="http://localhost/e-commerce-2024-jfc/pages/login.html"
+                    class="btn btn-success btn-outline-light">Login Now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer for homepage -->
+    <div class="footer-box">
+        <!-- render footer dynamically from backend -->
+    </div>
+
+    <!-- js file link -->
+    <script src="../common/js/common.js"></script>
+    <script src="../js/dynamic.js"></script>
+
+    <script>
+        const navbarBoxEl = document.querySelector(".navbar-box");
+        const footerBoxEl = document.querySelector(".footer-box");
+
+        // request dynamic navbar page
+        dynamicRequest(navbarBoxEl, "navbar.html");
+        dynamicRequest(footerBoxEl, "footer.html");
+
+    </script>
+</body>
+
+</html>
