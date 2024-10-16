@@ -1,20 +1,25 @@
-window.onload = () => {
+setTimeout(() => {
     dynamicNavbarFunc();
     dynamicFooterFunc();
-}
+}, 500);
 
 // get branding data
 const brandingData = getAllData("allBrandingData");
 console.log(brandingData);
 
-
 // creating dynamic navbar
 const dynamicNavbarFunc = () => {
     let allCategoryData = getAllData("allCategoryData");
     let dynamicNavbarBox = document.querySelector(".dynamic-navbar-box");
+    let brandLogo = document.querySelector(".brand-logo");
+    let brandName = document.querySelector(".brand-name");
 
     // show dynamic navbar menu items
     if (allCategoryData && allCategoryData.length > 0) {
+
+        brandLogo.src = brandingData[0].brandingLogo;
+        brandName.innerHTML = brandingData[0].brandingName;
+
         dynamicNavbarBox.innerHTML = `
             <li class="nav-item">
                 <a href="http://localhost/e-commerce-2024-jfc/"
