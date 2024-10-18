@@ -2,6 +2,10 @@ const insertData = (table_name, data) => {
     localStorage.setItem(table_name, JSON.stringify(data));
 }
 
+const removeData = (table_name) => {
+    localStorage.removeItem(table_name);
+}
+
 const getAllData = (table_name) => {
     if (localStorage.getItem(table_name) != null) {
         const data = JSON.parse(localStorage.getItem(table_name));

@@ -5,7 +5,7 @@ setTimeout(() => {
 
 // get branding data
 const brandingData = getAllData("allBrandingData");
-console.log(brandingData);
+const registrationData = getAllData("allRegistrationData");
 
 // creating dynamic navbar
 const dynamicNavbarFunc = () => {
@@ -17,8 +17,8 @@ const dynamicNavbarFunc = () => {
     // show dynamic navbar menu items
     if (allCategoryData && allCategoryData.length > 0) {
 
-        brandLogo.src = brandingData[0].brandingLogo;
-        brandName.innerHTML = brandingData[0].brandingName;
+        brandLogo.src = brandingData[0]?.brandingLogo;
+        brandName.innerHTML = brandingData[0]?.brandingName;
 
         dynamicNavbarBox.innerHTML = `
             <li class="nav-item">
@@ -48,23 +48,67 @@ const dynamicNavbarFunc = () => {
                     <i class="fa fa-user shadow-sm"></i>
                 </button>
 
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="http://localhost/e-commerce-2024-jfc/pages/signup.html" class="dropdown-item">
-                            <i class="fa fa-user"></i>
-                            Signup
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/e-commerce-2024-jfc/pages/login.html" class="dropdown-item">
-                            <i class="fa fa-right-from-bracket"></i>
-                            Login
-                        </a>
-                    </li>
+                <ul class="dropdown-menu menu-box">
+                    
                 </ul>
             </div>
         </div>
     `;
+
+    // handle login logout btns dropdowns
+    let menuBoxEl = document.querySelector(".menu-box");
+    let loggedInUser = getAllData("__au__");
+
+    if (loggedInUser.length != 0) {
+
+        const loggedInUserData = registrationData.filter((data) => data.email == loggedInUser);
+
+        menuBoxEl.innerHTML += `
+            <li >
+                <a href="http://localhost/e-commerce-2024-jfc/pages/profile.html" class="dropdown-item text-wrap">
+                    <i class="fa fa-user"></i>
+                    ${loggedInUserData[0].fullName}
+                </a>
+            </li >
+            <li>
+                <a href="#" class="dropdown-item logout-btn">
+                    <i class="fa fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+        `;
+
+        // logout handling
+        let logoutBtn = document.querySelector(".logout-btn");
+
+        logoutBtn.onclick = (e) => {
+            e.preventDefault();
+            removeData("__au__");
+            Swal.fire({
+                title: "Logout",
+                text: "Logout successfully",
+                icon: "success"
+            });
+            setTimeout(() => {
+                window.location = "index.html";
+            }, 400);
+        }
+    } else {
+        menuBoxEl.innerHTML += `
+            <li >
+                <a href="http://localhost/e-commerce-2024-jfc/pages/signup.html" class="dropdown-item">
+                    <i class="fa fa-user"></i>
+                    Signup
+                </a>
+            </li >
+            <li>
+                <a href="http://localhost/e-commerce-2024-jfc/pages/login.html" class="dropdown-item">
+                    <i class="fa fa-right-from-bracket"></i>
+                    Login
+                </a>
+            </li>
+        `;
+    }
 
 }
 
