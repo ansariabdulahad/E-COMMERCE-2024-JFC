@@ -38,6 +38,24 @@
             </button>
 
             <button
+                class="btn collapse-btn shadow-sm mb-2 w-100 d-flex gap-2 justify-content-between text-white align-items-center fs-6 bg-gradient fw-bold">
+                <i class="fas fa-home"></i>
+                HOMEPAGE DESIGN
+                <i class="fas fa-angle-down"></i>
+            </button>
+
+            <ul class="collapse p-2">
+                <li class="collapse-item list-group-item shadow-sm text-white border-start bg-transparent"
+                    access-link="dynamic/headerShowcase-design.html">
+                    Header Showcase
+                </li>
+                <li class="collapse-item list-group-item shadow-sm text-white border-start bg-transparent"
+                    access-link="dynamic/categoryShowcase-design.html">
+                    Category Showcase
+                </li>
+            </ul>
+
+            <button
                 class="btn collapse-btn shadow-sm w-100 d-flex gap-2 justify-content-between text-white align-items-center fs-6 bg-gradient fw-bold">
                 <i class="fas fa-shopping-cart"></i>
                 STOCKS UPDATE
@@ -65,13 +83,145 @@
 
             <!-- render dynamically from backend using ajax -->
 
+            <div class="row p-4 m-auto animate__animated animate__zoomIn">
+
+                <h3 class="fw-bold p-0">Header Showcase</h3>
+                <div class="col-md-12 bg-white shadow-sm p-4 rounded position-relative" style="height: 550px;">
+
+                    <div class="title-box">
+                        <h1>Title</h1>
+                        <h4>Subtitle</h4>
+
+                        <div class="title-button">
+                            <button class="btn btn-danger shadow-sm">Follow</button>
+                            <button class="btn btn-primary shadow-sm">Subscribe</button>
+                        </div>
+                    </div>
+
+                    <div class="formatting-box rounded shadow-sm">
+                        <div class="row d-flex align-items-center justify-content-center">
+
+                            <div class="col-md-3">
+                                <div class="btn-group w-100 my-2">
+                                    <button class="btn btn-light fw-bold">Color:</button>
+                                    <button class="btn btn-light p-1">
+                                        <input type="color" class="shadow-sm form-control-color p-1">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="btn-group w-100 my-2">
+                                    <button class="btn btn-light fw-bold">Range:</button>
+                                    <button class="btn btn-light p-2">
+                                        <input type="range" class="shadow-sm form-range form-control p-2">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="btn-group w-100 my-2">
+                                    <button class="btn btn-light fw-bold">Text:</button>
+                                    <button class="btn btn-light p-1">
+                                        <input type="text" class="shadow-sm form-control p-1">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="btn-group w-100 my-2">
+                                    <button class="btn btn-light fw-bold">Url:</button>
+                                    <button class="btn btn-light p-1">
+                                        <input type="url" class="shadow-sm form-control p-1">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row d-flex align-items-center justify-content-center">
+
+                            <div class="col-md-3">
+                                <div class="btn-group w-100 my-2">
+                                    <button class="btn btn-light fw-bold">Bg Color:</button>
+                                    <button class="btn btn-light p-1">
+                                        <input type="color" class="shadow-sm form-control-color p-1">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="btn-group w-100 my-2">
+                                    <button class="btn btn-light fw-bold">Color:</button>
+                                    <button class="btn btn-light p-1">
+                                        <input type="color" class="shadow-sm form-control-color p-1">
+                                    </button>
+                                    <button class="btn btn-dark p-1">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="dropdown w-100 my-2">
+                                    <button data-bs-toggle="dropdown"
+                                        class="btn dropdown-toggle w-100 btn-light p-2 fw-bold">
+                                        Alignment
+                                    </button>
+
+                                    <ul class="dropdown-menu">
+                                        <span class="dropdown-item" align-position="h"
+                                            align-value="flex-start">LEFT</span>
+                                        <span class="dropdown-item" align-position="h"
+                                            align-value="flex-end">RIGHT</span>
+                                        <span class="dropdown-item" align-position="h"
+                                            align-value="flex-center">CENTER</span>
+                                        <span class="dropdown-item" align-position="v"
+                                            align-value="flex-start">TOP</span>
+                                        <span class="dropdown-item" align-position="v"
+                                            align-value="flex-center">V-CENTER</span>
+                                        <span class="dropdown-item" align-position="v"
+                                            align-value="flex-end">BOTTOM</span>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form>
+                            <div class="row p-3 d-flex align-items-center justify-content-around">
+                                <div class="col-md-6 bg-white shadow-sm rounded p-3 my-2">
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Title Image (1920*450)</span>
+                                        <input type="file" class="form-control shadow-sm">
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Title</span>
+                                        <input type="text" class="form-control shadow-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1"></div>
+
+                                <div class="col-md-5 bg-white shadow-sm rounded p-3 my-2">
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text">Subtitle</span>
+                                        <textarea class="form-control shadow-sm"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary float-end w-100">Add Showcase</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
     <!-- js file link -->
     <script src="../common/js/common.js"></script>
-    <script src="./js/index.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
     <script src="./js/branding.js"></script>
     <script src="./js/category.js"></script>
     <script src="./js/brand.js"></script>
