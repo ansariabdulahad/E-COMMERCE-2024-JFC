@@ -83,7 +83,7 @@ nav {
 /* header showcase styles */
 .formatting-box {
   width: 100%;
-  height: 200px;
+  height: 70px;
   /* max-height: fit-content; */
   overflow-y: auto;
   position: absolute;
@@ -93,4 +93,13 @@ nav {
   bottom: 0;
   /* scrollbar-width: thin; */
   /* scrollbar-color: #6c5ce7 #f1f1f1; */
+}
+
+.target {
+  cursor: pointer;
+  max-width: fit-content;
+}
+
+.target::selection {
+  background-color: inherit;
 }
