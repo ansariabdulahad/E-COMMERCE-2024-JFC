@@ -83,7 +83,7 @@ nav {
 /* header showcase styles */
 .formatting-box {
   width: 100%;
-  height: 70px;
+  height: 150px;
   /* max-height: fit-content; */
   overflow-y: auto;
   position: absolute;
@@ -91,6 +91,7 @@ nav {
   padding: 13px;
   left: 0;
   bottom: 0;
+  z-index: 1000;
   /* scrollbar-width: thin; */
   /* scrollbar-color: #6c5ce7 #f1f1f1; */
 }
@@ -102,4 +103,9 @@ nav {
 
 .target::selection {
   background-color: inherit;
+}
+
+.title-box {
+  z-index: 999;
+  position: absolute;
 }

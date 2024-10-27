@@ -19,6 +19,7 @@ const createHeaderShowcaseFunc = (link) => {
     let btnSizeEl = showcasePreview.querySelector(".btn-size");
     let addBtn = showcasePreview.querySelector(".add-btn");
     let targetEl = showcasePreview.querySelectorAll(".target");
+    let allAlignmentEl = showcasePreview.querySelectorAll(".alignment");
 
     // title onchange handler
     allInputEl[1].oninput = () => {
@@ -93,6 +94,64 @@ const createHeaderShowcaseFunc = (link) => {
                 text: "Only two buttons are allowed to add!",
                 icon: "warning"
             });
+        }
+    }
+
+    // add header showcase image
+    allInputEl[0].onchange = () => {
+        let file = allInputEl[0].files[0];
+        let fileReader = new FileReader();
+
+        fileReader.readAsDataURL(file);
+
+        if (file.size < 200000) {
+            fileReader.onload = (e) => {
+                let url = e.target.result;
+                let image = new Image();
+
+                image.src = url;
+
+                image.onload = () => {
+                    let originalHeight = image.height;
+                    let originalWidth = image.width;
+
+                    if (originalHeight === 680 && originalWidth === 1920) {
+                        image.style.width = "100%";
+                        image.style.position = "absolute";
+                        image.style.top = "0";
+                        image.style.left = "0";
+
+                        showcasePreview.append(image);
+                    } else {
+                        Swal.fire({
+                            title: "FAILED!",
+                            text: "Please upload image with height of 680 and width of 1920!",
+                            icon: "warning"
+                        });
+                    }
+                }
+            }
+        } else {
+            Swal.fire({
+                title: "FAILED!",
+                text: "Please upload image less than or 200 kb!",
+                icon: "warning"
+            });
+        }
+    }
+
+    // set alignments for header
+    for (let el of allAlignmentEl) {
+        el.onclick = () => {
+
+            let alignPosition = el.getAttribute("align-position");
+            let alignValue = el.getAttribute("align-value");
+
+            if (alignPosition == "h") {
+                showcasePreview.style.justifyContent = alignValue;
+            } else if (alignPosition == "v") {
+                showcasePreview.style.alignItems = alignValue;
+            }
         }
     }
 }
