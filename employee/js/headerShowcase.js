@@ -1,12 +1,15 @@
 // header showcase creating coding
 const createHeaderShowcaseFunc = (link) => {
     dynamic_link = link;
+    let allHeaderShowcase = [];
+    allHeaderShowcase = getAllData("allHeaderShowcase");
 
     // slect all elements
     let showcaseForm = document.querySelector('.showcase-form');
     let allInputEl = showcaseForm.querySelectorAll("input");
     let textareaEl = showcaseForm.querySelector('textarea');
     let maxLengthEl = showcaseForm.querySelectorAll('.max-length');
+    let addShowcaseBtn = showcaseForm.querySelector('.add-showcase-btn');
     let showcasePreview = document.querySelector('.showcase-preview');
     let titleBox = showcasePreview.querySelector('.title-box');
     let titleButtonBox = showcasePreview.querySelector(".title-button");
@@ -154,4 +157,24 @@ const createHeaderShowcaseFunc = (link) => {
             }
         }
     }
-}
+
+    // add showcase preview to localstorage
+    addShowcaseBtn.onclick = (event) => {
+        event.preventDefault();
+        console.log(showcasePreview.innerHTML);
+
+        if (allHeaderShowcase.length < 3) {
+            allHeaderShowcase.push({
+                slider: showcasePreview.innerHTML
+            });
+            insertData("allHeaderShowcase", allHeaderShowcase);
+            insertMessage();
+        } else {
+            Swal.fire({
+                title: "FAILED",
+                text: "Only 3 header sliders are allowed to create!",
+                icon: "warning"
+            });
+        }
+    }
+}   

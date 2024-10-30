@@ -44,12 +44,13 @@ const toggleSideNavbar = () => {
 
 // side navbar button list collapse control
 const collapseSideNavLinks = () => {
-    let collapseSideNavBtn = document.querySelector(".collapse-btn");
+    let collapseSideNavBtn = document.querySelectorAll(".collapse-btn");
 
-    collapseSideNavBtn.onclick = (event) => {
-        let ul = event.target.nextElementSibling;
-
-        ul.classList.toggle("show");
+    for (let btn of collapseSideNavBtn) {
+        btn.onclick = (event) => {
+            let ul = event.target.nextElementSibling;
+            ul.classList.toggle("show");
+        }
     }
 }
 
