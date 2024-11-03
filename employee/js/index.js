@@ -106,8 +106,12 @@ const dynamicAjaxFunc = (link) => {
         }
         else if (link === "dynamic/branding-design.html") {
             createBrandingFunc(link);
-        } else if (link === "dynamic/headerShowcase-design.html") {
+        }
+        else if (link === "dynamic/headerShowcase-design.html") {
             createHeaderShowcaseFunc(link);
+        }
+        else if (link === "dynamic/categoryShowcase-design.html") {
+            createCategoryShowcaseFunc(link);
         }
     }
 }
