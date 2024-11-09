@@ -1,6 +1,7 @@
 // header showcase creating coding
 const createHeaderShowcaseFunc = (link) => {
     dynamic_link = link;
+    let url = "";
     let allHeaderShowcase = [];
     allHeaderShowcase = getAllData("allHeaderShowcase");
 
@@ -109,7 +110,7 @@ const createHeaderShowcaseFunc = (link) => {
 
         if (file.size < 200000) {
             fileReader.onload = (e) => {
-                let url = e.target.result;
+                url = e.target.result;
                 let image = new Image();
 
                 image.src = url;
@@ -161,11 +162,55 @@ const createHeaderShowcaseFunc = (link) => {
     // add showcase preview to localstorage
     addShowcaseBtn.onclick = (event) => {
         event.preventDefault();
-        console.log(showcasePreview.innerHTML);
+
+        // manage header title
+        let titleSize = "";
+        let titleColor = "";
+
+        targetEl[0].style.fontSize == ""
+            ? titleSize = "300%"
+            : titleSize = targetEl[0].style.fontSize
+
+        targetEl[0].style.color == ""
+            ? titleColor = "black"
+            : titleColor = targetEl[0].style.color
+
+        // manage header subtitle
+        let subTitleSize = "";
+        let subTitleColor = "";
+
+        targetEl[1].style.fontSize == ""
+            ? subTitleSize = "200%"
+            : subTitleSize = targetEl[1].style.fontSize
+
+        targetEl[1].style.color == ""
+            ? subTitleColor = "black"
+            : subTitleColor = targetEl[1].style.color
+
+        // manage header alignments
+        let h_align = "";
+        let v_align = "";
+
+        showcasePreview.style.justifyContent == ""
+            ? h_align = "flex-start"
+            : h_align = showcasePreview.style.justifyContent
+
+        showcasePreview.style.alignItems == ""
+            ? v_align = "flex-start"
+            : v_align = showcasePreview.style.alignItems
 
         if (allHeaderShowcase.length < 3) {
             allHeaderShowcase.push({
-                slider: showcasePreview.innerHTML
+                titleSize: titleSize,
+                titleColor: titleColor,
+                subTitleSize: subTitleSize,
+                subTitleColor: subTitleColor,
+                titleText: targetEl[0].innerHTML,
+                subTitleText: targetEl[1].innerHTML,
+                h_align: h_align,
+                v_align: v_align,
+                titleImage: url == "" ? "common/images/avatar.jpeg" : url,
+                button: titleButtonBox.innerHTML.trim()
             });
             insertData("allHeaderShowcase", allHeaderShowcase);
             insertMessage();

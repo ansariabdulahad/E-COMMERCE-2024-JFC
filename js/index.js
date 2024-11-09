@@ -1,3 +1,51 @@
+// show header crousel coding
+const createCarouselFunc = () => {
+    const allHeaderShowcase = getAllData("allHeaderShowcase");
+    let textAlign = "";
+    let carouselInner = document.querySelector(".carousel-inner");
+
+    if (allHeaderShowcase.length > 0) {
+        for (let data of allHeaderShowcase) {
+
+            if (data.h_align == "center") {
+                textAlign = "text-start";
+            } else {
+                textAlign = "text-start";
+            }
+
+            carouselInner.innerHTML += `
+                <div class="carousel-item">
+                    <img src="${data.titleImage}" alt="${data.titleText}" class="d-block" style="width:100%">
+                    <div class="carousel-caption d-flex h-100 ${textAlign}" 
+                        style="justify-content:${data.h_align}; align-items:${data.v_align}">
+                        <div>
+                            <h1 style="color: ${data.titleColor}; font-size: ${data.titleSize}">${data.titleText}</h1>
+                            <h4 style="color: ${data.subTitleColor}; font-size: ${data.subTitleSize}">${data.subTitleText}</h4>
+                            <div>
+                                ${data.button}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        carouselInner.innerHTML += `
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        `;
+
+        document.querySelector(".carousel-item").classList.add("active");
+    }
+}
+
+createCarouselFunc();
+
 // tranding product listing
 const showProduct = () => {
     const allProductData = getAllData("allProductData");
@@ -34,7 +82,6 @@ const showProduct = () => {
         `;
     })
 }
-
 showProduct();
 
 // trending category showcase listing
@@ -114,10 +161,9 @@ const showCategory = () => {
                 <button class="btn border p-2 bg-white shadow fw-semibold" style="position: absolute; top: 50%; left: 50%;
                 transform: translate(-50%, -50%);
                 ">Click Me</button>
-                <img src="${topLeftImage}" alt="${topLeftLabel}">
+                <img src="${bottomRightImage}" alt="${bottomRightLabel}">
             </div>
         </div>
     `;
 }
-
 showCategory();
